@@ -18,7 +18,7 @@ var domout = require('domout')
 domout.log('hello world')
 ```
 
-![hello](helloworld.png)
+![hello](assets/helloworld.png)
 
 Log multiple lines in the append mode (default)
 
@@ -29,7 +29,7 @@ domout.log('second line')
 domout.log('third line')
 ```
 
-![append](append.png)
+![append](assets/append.png)
 
 Output to different dom components
 
@@ -56,19 +56,19 @@ left.log('say hi here')
 right.log('say hello there')
 ```
 
-![leftright](leftright.png)
+![leftright](assets/leftright.png)
 
 Use colors via Chalk
 
 ```javascript
 var domout = require('domout'),
 	chalk = require('chalk')
-	
+
 domout.log(chalk.red('red'))
 domout.log(chalk.green('green'))
 ```
 
-![chalk](chalk.png)
+![chalk](assets/chalk.png)
 
 Redirect `console` to `domout`
 
