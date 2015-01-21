@@ -13,7 +13,7 @@ N/A
 
 Log "hello world" to a web page shown live in a browser (default to the `<body>` tag)
 
-```
+```javascript
 var domout = require('domout')
 domout.log('hello world')
 ```
@@ -22,7 +22,7 @@ domout.log('hello world')
 
 Log multiple lines in the append mode (default)
 
-```
+```javascript
 var domout = require('domout')
 domout.log('first line')
 domout.log('second line')
@@ -33,7 +33,7 @@ domout.log('third line')
 
 Output to different dom components
 
-```
+```javascript
 var domout = require('domout')
 
 domout.load('<table width="100%"><tr><td id="left"></td><td id="right"></td></tr></table>')
@@ -49,7 +49,7 @@ right.log('say hello there')
 
 Use colors via Chalk
 
-```
+```javascript
 var domout = require('domout'),
 	chalk = require('chalk')
 	
@@ -63,7 +63,7 @@ domout.log(chalk.green('green'))
 
 Redirect `console` to `domout`
 
-```
+```javascript
 var domout = require('domout')
 console = domout.pipeFrom(console)
 
@@ -73,7 +73,7 @@ console.log('hello world')
 
 Given a set of async tasks running in parallel, log to a different `DIV` per task
 
-```
+```javascript
 var async = require('async'),
     domout = require('domout')
 
