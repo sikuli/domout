@@ -33,10 +33,21 @@ domout.log('third line')
 
 Output to different dom components
 
+Assuming in a browser, a HTML page has already been loaded with the following contents
+
+```html
+<table width="100%">
+	<tr>
+		<td id="left"></td>
+		<td id="right"></td>
+	</tr>
+</table>
+```
+
+Then, we can output to the cell marked as 'left' and 'right' respectively.
+
 ```javascript
 var domout = require('domout')
-
-domout.load('<table width="100%"><tr><td id="left"></td><td id="right"></td></tr></table>')
 
 var left = domout.$('#left')
 var right = domout.$('#right')
@@ -56,8 +67,6 @@ var domout = require('domout'),
 domout.log(chalk.red('red'))
 domout.log(chalk.green('green'))
 ```
-
-
 
 ![chalk](chalk.png)
 
