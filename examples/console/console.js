@@ -9,7 +9,7 @@ Buffer.prototype.toHTML = function() {
     '10' : "<br/>"
   };
 
-  var raw = this.toJSON();
+  var raw = this.toJSON().data;
 
   var sanitizedBytes = _.map(raw, function(n) {
     if (bytesMapping[n.toString()])
