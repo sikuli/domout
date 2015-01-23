@@ -5,6 +5,23 @@ var open = require('open');
 
 app.listen(8080);
 
+module.export = domout;
+
+domout = {};
+
+domout.log = function (data, channel, domLocation) {
+    if (typeof channel == "undefined") {
+        channel = "dompipe";
+    }
+    if (typeof domLocation == "undefined") {
+        domLocation = "main";
+    }
+    io.emit(channel, {domLocation : data });
+};
+
+
+
+
 var clientTemp = '\
 <html>\
 <head>\
