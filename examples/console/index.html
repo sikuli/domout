@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <script src="scripts/ansi_up.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.3.2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 
     <script>
-      var socket = io.connect('http://localhost:6969');
+      var socket = io.connect("http://localhost:7777");
 
       var spaceData = function(data) {
         var lines = data.split("<br/>");
@@ -24,16 +25,24 @@
         return spaced.join("<br/>") + "<br/>";
       };
 
-      socket.on('news', function(data) {
-        if (data == "[H[J")
+      var colorLines = function(data) {
+        return  ansi_up.ansi_to_html(data);
+      };
+
+      socket.on("news", function(data) {
+        if (data == "[H[J") {
           $(".stdout").empty()
-        else
-          $(".stdout").append(spaceData(data));
+        } else {
+          var text = _.compose(spaceData, colorLines)(data);
+          $(".stdout").append(text);
+        }
       });
     </script>
 
     <style>
       .console  {
+        font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier", monospace;
+        color: black;
         white-space: pre;
         border-radius: 5px;
         padding: 10px;
@@ -46,18 +55,13 @@
       .stdout {
         padding-left: 30px;
       };
-
-      code {
-        font-family: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier', monospace;
-        color: black;
-      };
     </style>
   </head>
 
   <body>
-    <code>
-      <div class="console"><div class="stdout"></div>
+    <div class="console">
+      <div class="stdout">
       </div>
-    </code>
+    </div>
   </body>
 </html>
