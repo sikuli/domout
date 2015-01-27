@@ -1,9 +1,14 @@
 domout = require('./domout')
 
-test = {
+test1 = {
+    "top" : "Domout is ready!"
+}
+test2 = {
     "left" : "123",
     "right" : "abc"
 };
 
-domout.start(function (info) { console.log(info); });
-domout.log(test);
+// domout.start(function (info) { console.log(info); });
+// console.log('inbetween');
+domout.log(test1);
+domout.log(test2);

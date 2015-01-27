@@ -3,33 +3,35 @@ var io = require('socket.io')(app);
 var open = require('open');
 var name = io.of('/domout');
 
-var domout = module.exports = {};
 var socket;
+var ready = 0;
 
 function handler (request, response) {
         response.writeHead(200);
         response.end(clientTemp);
 };
 
-domout.start = function (callback) {
-    app.listen(8080);
-    
-    open("http://localhost:8080");
+var domout = module.exports = {
 
-    name.on('connection', function (socket) {
-        socket.emit('domout', { "top": "Domout is ready!"});
-        socket.on('callback', function (data) {
-            console.log(data);
-        })
-    });
-    callback("test")
+    log: function (data) {
 
-}
+        if (ready == 0) {
+            app.listen(8080);
+            
+            open("http://localhost:8080");
 
-domout.log = function (data) {
-    console.log('log fired');
-    io.sockets.emit('domout', data);
-
+            name.on('connection', function (socket) {
+                socket.emit('domout', data);
+                socket.on('callback', function (data) {
+                    console.log(data);
+                    ready = 1;
+                })
+            });
+        } else {
+            console.log('log fired');
+            io.sockets.emit('domout', data);
+        }
+    }
 };
 
 
@@ -43,8 +45,10 @@ var clientTemp = '\
     socket.on("domout", function (data){ \
         for (var key in data) { \
             if (data.hasOwnProperty(key)) { \
-                $("body").text(data[key]) \
-            }} \
+                $("body").append("<div id="+key+"></div>"); \
+                $("#"+key).text(data[key]); \
+            }\
+        } \
         socket.emit("callback", "got it!");\
     });\
 </script>\
