@@ -29,5 +29,11 @@
   },
   "devDependencies": {
     "karma": "^0.12.31"
+  },
+  "eslintConfig": {
+    "env": {
+        "browser": true,
+        "node": true
+    }
   }
 }
