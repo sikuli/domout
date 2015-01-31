@@ -9,7 +9,7 @@ var call = {
         newData = { "right" : data }
         return newData;
 
-    },
+    }
 
 }
 

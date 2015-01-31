@@ -7,7 +7,6 @@ var server = require("http").Server(app);
 var io = require("socket.io")(server);
 var Writable = require("stream").Writable;
 var BrowserStream = new Writable();
-
 var glob = require("glob");
 var _ = require("lodash");
 
@@ -15,7 +14,7 @@ server.listen(7777);
 
 // ****************************************************************************
 // setupTemplateEntryPoints():
-//   Glob grab all of the templates inside of templates/** and create an object
+//   Glob grabs all of the templates inside of templates/** and create an object
 //   which corresponse to:
 //      templateName: entryFunction
 //
@@ -31,17 +30,34 @@ var setupTemplateEntryPoints = function() {
   var files = glob.sync("templates/**/template.js", {})
 
   _.each(files, function(file){
-    var templateName = file.match(/\/(.*?)\//)[1]
+    var templateName = file.match(/\/(.*?)\//)[1];
+    var newMod = require("./" + file);
+    var createdMod = {};
+    _.each(newMod, function (nextFunc, funcName) {
+      createdMod[funcName] = function(data) {
+        return rawStream(nextFunc(data));
+      };
+    });
 
-    var returnFunction = function(data, options) {
-      return rawStream(require("./" + file).call(data, options));
-    };
 
-    templates[templateName] = returnFunction;
+
+    // var returnFunction = function(data, options) {
+    //   // var new_module = require("./file")
+    //   // return rawStream(new_module)
+      
+    //   _.each(newmod, function (nextFunc, funcName) {
+
+
+    //   });
+    //   return rawStream(require("./" + file).call(data, options));
+    // };
+
+    templates[templateName] = createdMod;
   });
 
   return templates;
 };
+
 
 // ****************************************************************************
 // rawStream():
@@ -50,12 +66,27 @@ var setupTemplateEntryPoints = function() {
 //   wrapper around a simple websocket.
 // ****************************************************************************
 
-var rawStream = function(data) {
-  io.on("connection", function (socket) {
-    socket.emit("news", data);
-  });
+//This stuff will all need to be built into our promise:
+//*******************************
+browserQ = q.defer();
+open("http://localhost:7777")
+io.on("connection", function (socket) {
+  socket.emit("domout", data);
+});
+browserQ.resolve(data);
+// ****************************
 
-  io.sockets.emit("news", data);
+var rawStream = function(data) {
+  if (firstTime == true) {
+
+    browserQ = q.defer();
+
+  } 
+
+  browserQ.promise.then( function (){
+    io.sockets.emit("domout", data);
+  };
+    
 };
 
 // ****************************************************************************
@@ -67,7 +98,7 @@ var rawStream = function(data) {
 // ****************************************************************************
 
 BrowserStream._write = function(chunk, enc, next) {
-  log(chunk.chunk.toString(enc || 'utf8'));
+  log(chunk.toString(enc || 'utf8'));
   next();
 };
 
