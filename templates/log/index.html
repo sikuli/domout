@@ -12,7 +12,7 @@
       socket.on('domout', function (data) {
         for (var key in data) {
           if (data.hasOwnProperty(key)) {
-            $("#"+key).text(data[key]);
+            $("#"+key).append("<p>"+data[key]+"</p>");
           }
         }
       });
@@ -23,10 +23,8 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6" id="left">
+        <div class="col-md-8 col-md-offset-2" id="main">
 
-        </div>
-        <div class "col-md-6" id="right">
         </div>
 
       </div>

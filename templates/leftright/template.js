@@ -1,11 +1,11 @@
-var call = {
-    left = function (data) {
+var leftright = {
+    left: function (data) {
         newData = { "left" : data }
         return newData;
 
     },
 
-    right = function (data) {
+    right: function (data) {
         newData = { "right" : data }
         return newData;
 
@@ -13,4 +13,4 @@ var call = {
 
 }
 
-module.exports = call;
+module.exports = leftright;
