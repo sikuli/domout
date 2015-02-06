@@ -12,7 +12,7 @@
       socket.on('domout', function (data) {
         for (var key in data) {
           if (data.hasOwnProperty(key)) {
-            $("#"+key).text(data[key]);
+            $("#"+key).append("<p>"+data[key]+"</p>");
           }
         }
       });
