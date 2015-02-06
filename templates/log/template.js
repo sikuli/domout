@@ -1,6 +1,6 @@
 "use strict";
 
-var rawStream = require("../../lib/stream").rawStream;
+var stream = require("../../lib/stream");
 var path = require("path");
 var ansi_up = require("ansi_up")
 
