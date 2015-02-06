@@ -33,8 +33,7 @@
         if (data == "[H[J") {
           $(".stdout").empty()
         } else {
-          var text = _.compose(spaceData, colorLines)(data);
-          $(".stdout").append(text);
+          $(".stdout").append(data);
         }
       });
     </script>
