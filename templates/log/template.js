@@ -7,7 +7,7 @@ var ansi_up = require("ansi_up")
 var log = function(data) {
      var template = path.join(__dirname, "/index.html");
      var newData = { "main": ansi_up.ansi_to_html(data) };
-     return rawStream(newData, template);
+     return stream.rawStream(newData, template);
 };
 
 
