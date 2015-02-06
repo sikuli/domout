@@ -29,7 +29,7 @@
         return  ansi_up.ansi_to_html(data);
       };
 
-      socket.on("news", function(data) {
+      socket.on("domout", function(data) {
         if (data == "[H[J") {
           $(".stdout").empty()
         } else {
