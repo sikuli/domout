@@ -29,12 +29,11 @@
         return  ansi_up.ansi_to_html(data);
       };
 
-      socket.on("news", function(data) {
+      socket.on("domout", function(data) {
         if (data == "[H[J") {
           $(".stdout").empty()
         } else {
-          var text = _.compose(spaceData, colorLines)(data);
-          $(".stdout").append(text);
+          $(".stdout").append(data);
         }
       });
     </script>
