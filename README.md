@@ -1,5 +1,7 @@
 # domout
 
+[![Build Status](https://travis-ci.org/sikuli/domout.svg?branch=tests)](https://travis-ci.org/sikuli/domout)
+
 > A console.log() that renders in your browser. 
 
 The console is great - dynamic, powerful, and easy to use. However, when developing 
