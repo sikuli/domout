@@ -27,8 +27,8 @@ Log "hello world" to a web page shown live in a browser.
 var domout = require('domout');
 domout.log('hello world');
 ```
-
 ![hello](assets/helloworld.png)
+---
 
 Log multiple lines in the append mode (default)
 
@@ -40,6 +40,7 @@ domout.log('third line')
 ```
 
 ![append](assets/append.png)
+---
 
 Use colors via Chalk
 
@@ -51,6 +52,7 @@ domout.log(chalk.red('red'))
 domout.log(chalk.green('green'))
 ```
 ![chalk](assets/chalk.png)
+---
 
 Redirect `console` to `domout`
 
@@ -61,6 +63,7 @@ console = domout.console(console)
 // all existing console.log now go to the browser
 console.log('hello world')
 ```
+---
 
 Given a set of async tasks running in parallel, log to a different `DIV` per task
 
@@ -103,5 +106,6 @@ async.map(jobs,
     }
 )
 ```
+---
 ## Templates 
 grid, log, console, etc. are all templates - these should be easily extendable. We plan on having user created templates in the next version.
