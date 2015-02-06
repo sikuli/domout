@@ -1,9 +1,14 @@
-var rawStream = require('../../stream').rawStream;
-var template = __dirname + '/index.html';
+"use strict";
 
-var log = function (data) {
-     var newData = { "main" : data };
+var rawStream = require("../../lib/stream").rawStream;
+var path = require("path");
+
+
+var log = function(data) {
+     var template = path.join(__dirname, "/index.html");
+     var newData = { "main": data };
      return rawStream(newData, template);
-}
+};
+
 
 module.exports = log;
