@@ -28,7 +28,7 @@ var tryGridsOut = function() {
     domout.grid2x2.g21(tester());
     domout.grid2x2.g22(tester());
 
-    setTimeout(tryGridsOut, 1500);
+    setTimeout(tryGridsOut, 750);
 };
 
 tryGridsOut();
