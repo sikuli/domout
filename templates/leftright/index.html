@@ -18,18 +18,35 @@
       });
 
     </script>
+    <style>
+        body, html {
+            overflow:hidden;
+        }
+
+        .container-fluid {
+            height: 100%;
+            background-color: #FDFFFF;
+        }
+
+        #left {
+            position: relative;
+            overflow-y: scroll;
+        }
+        #right {
+            position: relative;
+            overflow-y: scroll;
+        }
+    </style>
   </head>
   <body>
 
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6" id="left">
-
-        </div>
-        <div class "col-md-6" id="right">
-        </div>
+      <div class="col-md-6" id="left">
 
       </div>
+      <div class "col-md-6" id="right">
+      </div>
+
     </div>
   </body>
 </html>
