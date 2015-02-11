@@ -1,11 +1,8 @@
 {
   "name": "domout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Log directly to your browser.",
   "main": "index.js",
-  "scripts": {
-    "test": "tap */test.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sikuli/domout"
