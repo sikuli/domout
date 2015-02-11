@@ -16,7 +16,7 @@
     "log",
     "stdout"
   ],
-  "author": "Michael Aaron, Michael Skirpan, Ian Ker-Seymer",
+  "author": "Michael Aaron, Michael Skirpan, Ian Ker-Seymer, Peyman Mortazavi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sikuli/domout/issues"
