@@ -26,6 +26,18 @@ describe("domout", function() {
           expect(stream.rawStream).toHaveBeenCalled();
         });
       });
+
+      describe("log", function() {
+        beforeEach(function() {
+          var log = require("../templates/snoop/template");
+          spyOn(stream, "rawStream");
+          log("test");
+        });
+
+        it("calls rawStream", function() {
+          expect(stream.rawStream).toHaveBeenCalled();
+        });
+      });
     });
   });
 });
