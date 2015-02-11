@@ -1,0 +1,43 @@
+body {
+      background-image: url("snoop.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-color: pink;
+}
+
+p {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 20px;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      word-wrap: break-word;
+}
+
+.bubble {
+      position: fixed;
+      top: 40%;
+      left: 10%;
+      width: 350px;
+      height: 175px;
+      padding: 0px;
+      background: #FFFFFF;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+}
+
+.bubble:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 15px 0 15px 28px;
+      border-color: transparent #FFFFFF;
+      display: block;
+      width: 0;
+      z-index: 1;
+      margin-top: -15px;
+      right: -28px;
+      top: 72%;
+}
