@@ -65,6 +65,15 @@ console = domout.console(console);
 // all existing console.log now go to the browser
 console.log('hello world');
 ```
+---
+
+Get some snoop in your system.
+
+```javascript
+var domout = require('domout');
+
+domout.snoop('Sippin' on gin n' juice.');
+```
 
 ## Creating a template
 
