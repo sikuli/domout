@@ -72,7 +72,7 @@ Get some snoop in your system.
 ```javascript
 var domout = require('domout');
 
-domout.snoop('Sippin' on gin n' juice.');
+domout.snoop('Sippin\' on gin n\' juice.');
 ```
 
 ## Creating a template
