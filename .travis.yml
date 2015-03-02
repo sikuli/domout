@@ -9,5 +9,5 @@ install:
 script:
   - gulp
 
-email:
-  - false
+notifications:
+  email: false
